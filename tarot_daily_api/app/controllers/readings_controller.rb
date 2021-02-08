@@ -13,6 +13,7 @@ class ReadingsController < ApplicationController
     def create
         @reading = Reading.new(reading_params)
         if @reading.valid?
+            @reading.date = Time.now.to_s.split(' ')[0]
             @reading.save
             render json: @reading
         else
@@ -29,6 +30,6 @@ class ReadingsController < ApplicationController
     private
 
     def reading_params
-        params.require(:reading).permit(:date, :question, :user_id, :card_id, :direction)
+        params.require(:reading).permit(:question, :user_id, :card_id, :direction)
     end
 end

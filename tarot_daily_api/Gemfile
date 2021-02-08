@@ -42,3 +42,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rest-client', '~> 2.0.1'
 
 gem 'json_pure', '~> 2.5', '>= 2.5.1'
+
+gem 'jsonapi-serializer'

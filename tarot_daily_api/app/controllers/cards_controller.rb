@@ -12,6 +12,6 @@ class CardsController < ApplicationController
     
     def random_card
         @card = Card.all.sample(1)
-        render json: @card
+        render json: CardSerializer.new(@card).to_serialized_json
     end
 end

@@ -5,7 +5,7 @@ User.destroy_all
 Card.destroy_all
 
 
-kat = User.create(name: "Kat", user_name: "kitkat", password_digest: "pw", star_sign: "Aries")
+kat = User.create(name: "Kat", user_name: "kitkat", password: "pw", star_sign: "Aries")
 
 response = RestClient.get 'https://rws-cards-api.herokuapp.com/api/v1/cards/'
 result = JSON.parse response
