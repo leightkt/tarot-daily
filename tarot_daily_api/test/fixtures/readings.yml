@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  question: MyString
+  user: one
+  card: one
+  direction: MyString
+
+two:
+  date: MyString
+  question: MyString
+  user: two
+  card: two
+  direction: MyString
