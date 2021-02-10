@@ -78,6 +78,8 @@ GEM
     i18n (1.8.8)
       concurrent-ruby (~> 1.0)
     json_pure (2.5.1)
+    jsonapi-serializer (2.1.0)
+      activesupport (>= 4.2)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -175,6 +177,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   json_pure (~> 2.5, >= 2.5.1)
+  jsonapi-serializer
   listen (~> 3.3)
   puma (~> 5.0)
   rack-cors
