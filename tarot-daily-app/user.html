@@ -15,12 +15,15 @@
     <main>
         <section class="welcome">
             <h2 class="welcome user-greeting"></h2>
-            <form class="get-reading">
-                <label for="question">Ask a question:</label>
-                <input type="text" name="question" id="question">
-                <input type="submit" value="Get Reading" name="question" id="question">
-            </form>
+            <h3>Your daily horoscope</h3>
+            <h3 class="welcome horoscope"></h3>
         </section>
+        <form class="get-reading">
+            <h4>Get a Tarot Reading</h4>
+            <label for="question">Ask a question:</label>
+            <input type="text" name="question" id="question">
+            <input type="submit" value="Get Reading" name="question" id="question">
+        </form>
         <section class="display-readings">
             <h3>Saved Readings</h3>
         </section>
@@ -29,10 +32,10 @@
                 <div class="inner">
                     <div class="tarot-card front">
                         <h3 class="card-name"></h3>
-                        <h4 class="card-suit"></h4>
-                        <p class="card-meaning"></p>
+                        <img class="tarot-img" src="" alt="">
                     </div>
                     <div class="tarot-card back">
+                        <p class="card-meaning"></p>
                         <p class="desc"></p>
                     </div>
                 </div>

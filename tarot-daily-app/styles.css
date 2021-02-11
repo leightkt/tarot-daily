@@ -1,51 +1,55 @@
 body {
-    background: rgb(211, 155, 211);
+  background: rgb(211, 155, 211);
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .tarot-card {
-    background-color: transparent;
-    width: 20rem;
-    height: 35rem;
-    perspective: 1000px;
-  }
-  
-  /* This container is needed to position the front and back side */
-  .inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .tarot-card:hover .inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Position the front and back side */
-  .front, .back {
-    background: honeydew;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
-  
-  /* Style the front side (fallback if image is missing) */
-  .front {
-    color: black;
-    box-shadow: 3px 3px 8px grey;
-  }
-  
-  /* Style the back side */
-  .back {
-    transform: rotateY(180deg);
-    box-shadow: 3px 3px 8px grey;
-  }
+  background-color: transparent;
+  width: 22rem;
+  height: 45rem;
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.tarot-card:hover .inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.front, .back {
+  background: honeydew;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.front {
+  color: black;
+  box-shadow: 3px 3px 8px grey;
+}
+
+/* Style the back side */
+.back {
+  transform: rotateY(180deg);
+  box-shadow: 3px 3px 8px grey;
+}
+
+.upside-down {
+  -webkit-transform: rotate(180deg);
+}

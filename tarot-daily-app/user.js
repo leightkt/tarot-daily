@@ -1,6 +1,7 @@
 
 const backendURL = "http://localhost:9000"
 const $welcome = document.querySelector(".user-greeting")
+const $horoscope = document.querySelector(".horoscope")
 const $displayReadings = document.querySelector(".display-readings")
 const $getReadingForm = document.querySelector(".get-reading")
 const $newReading = document.querySelector(".new-reading")
@@ -11,6 +12,7 @@ const searchParams = new URLSearchParams(window.location.search)
 const userID = searchParams.get('user_id')
 let question = null
 
+getHoroscope()
 getSavedReadings()
 addActionToGetReading()
 addActionToBack()
@@ -65,7 +67,7 @@ function addActionToGetReading() {
     $getReadingForm.addEventListener('submit', (event) => {
         event.preventDefault()
         event.target.reset()
-        toggleHidden([$displayReadings, $getReadingForm, $newReading])
+        toggleHidden([$displayReadings, $getReadingForm, $newReading, $welcome.parentNode])
 
         const formdata = new FormData($getReadingForm)
         question = formdata.get('question')
@@ -88,20 +90,23 @@ function addActionToGetReading() {
 
 function displayCard(tarotCard) {
     const $cardName = document.querySelector(".card-name")
-    const $cardSuit = document.querySelector(".card-suit")
     const $cardMeaning = document.querySelector(".card-meaning")
     const $desc = document.querySelector(".desc")
+    const $tarotImage = document.querySelector(".tarot-img")
+
     
     $cardName.innerText = tarotCard.card[0].name
-    $cardSuit.innerText = tarotCard.card[0].suit
-    $cardMeaning.innerText = getMeaning(tarotCard)
+    $tarotImage.src = `/assets/tarot/${tarotCard.card[0].name_short}.jpg`
+    $tarotImage.alt = `${tarotCard.card[0].name}`
+    $cardMeaning.innerText = getMeaning(tarotCard, $tarotImage)
     $desc.innerText = tarotCard.card[0].desc
 }
 
-function getMeaning(tarotCard){
+function getMeaning(tarotCard, $tarotImage){
     if (tarotCard.direction === "up"){
         return `Up: ${tarotCard.card[0].meaning_up}`
     } else {
+        $tarotImage.classList.add("upside-down")
         return `Down: ${tarotCard.card[0].meaning_rev}`
     }
 }
@@ -150,4 +155,19 @@ function logoutAction(){
         localStorage.removeItem('token')
         location.replace('/')
     })
+}
+
+function getHoroscope(){
+    fetch(`${backendURL}/horoscope?user_id=${userID}`, {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${localStorage.token}`,
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(result => {
+            $horoscope.textContent = result.horoscope
+        })
 }
