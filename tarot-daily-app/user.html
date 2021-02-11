@@ -5,13 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarot Daily</title>
-    <script src="app.js"></script>
+    <script src="user.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header></header>
+    <header>
+        <h1>Tarot Daily</h1>
+    </header>
     <main>
+        <section class="welcome">
+            <h2 class="welcome user-greeting"></h2>
+            <form class="get-reading">
+                <label for="question">Ask a question:</label>
+                <input type="text" name="question" id="question">
+                <input type="submit" value="Get Reading" name="question" id="question">
+            </form>
+        </section>
         <section class="display-readings">
+            <h3>Saved Readings</h3>
+        </section>
+        <section class="new-reading hidden">
             <div class="tarot-card">
                 <div class="inner">
                     <div class="tarot-card front">
@@ -24,10 +37,12 @@
                     </div>
                 </div>
             </div>
-            <button class="delete">Delete</button>
-            <button class="back">Back</button>
+            <button class="save">Save</button>
+            <button class="back-button">Back</button>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <button class="logout">Log Out</button>
+    </footer>
 </body>
 </html>
