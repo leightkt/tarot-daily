@@ -7,7 +7,7 @@ class ReadingsController < ApplicationController
 
     def show
         @reading = Reading.find(params[:id])
-        render json: @reading
+        render json: @reading, include: :card
     end
     
     def create

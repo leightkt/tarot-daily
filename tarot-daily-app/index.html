@@ -13,14 +13,6 @@
         <h1>Tarot Daily</h1>
     </header>
     <main>
-        <section class="hidden">
-            <h2 class="welcome"></h2>
-            <form class="get-reading">
-                <label for="question">Ask a question:</label>
-                <input type="text" name="question" id="question">
-                <input type="submit" value="Get Reading" name="question" id="question">
-            </form>
-        </section>
         <form class="login-form">
             <label for="user_name">Username:</label>
             <input type="text" name="user_name" id="user_name">
@@ -28,25 +20,34 @@
             <input type="text" name="password" id="password">
             <input type="submit" value="Log In">
         </form>
-        <section class="display-readings hidden">
-            <h3>Saved Readings</h3>
-        </section>
-        <section class="new-reading hidden">
-            <div class="tarot-card">
-                <div class="inner">
-                    <div class="tarot-card front">
-                        <h3 class="card-name"></h3>
-                        <h4 class="card-suit"></h4>
-                        <p class="card-meaning"></p>
-                    </div>
-                    <div class="tarot-card back">
-                        <p class="desc"></p>
-                    </div>
-                </div>
-            </div>
-            <button class="save">Save</button>
-            <button class="back">Back</button>
-        </section>
+        <p class="errors error hidden"></p>
+        <button class="sign-up">New? Sign Up!</button>
+        <form class="signup-form hidden">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="name">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="username">
+            <label for="new-password">Password</label>
+            <input type="password" name="password" id="new-password" placeholder="password">
+            <label for="star-sign">Star Sign</label>
+            <select name="star-sign" id="star-sign">
+                <option value="Aries">Aries</option>
+                <option value="Taurus">Taurus</option>
+                <option value="Gemini">Gemini</option>
+                <option value="Cancer">Cancer</option>
+                <option value="Leo">Leo</option>
+                <option value="Virgo">Virgo</option>
+                <option value="Libra">Libra</option>
+                <option value="Scorpio">Scorpio</option>
+                <option value="Sagittarius">Sagittarius</option>
+                <option value="Capricorn">Capricorn</option>
+                <option value="Aquarius">Aquarius</option>
+                <option value="Pieces">Pieces</option>
+            </select>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p class="signup-errors error hidden"></p>
+        <button class="back-to-login hidden">Log In</button>
     </main>
     <footer></footer>
 </body>
