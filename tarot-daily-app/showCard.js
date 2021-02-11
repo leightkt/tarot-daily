@@ -27,13 +27,14 @@ fetch(`${backendURL}/readings/${readingId}`, {
 
 function displayCard(reading) {
     const $cardName = document.querySelector(".card-name")
-    const $cardSuit = document.querySelector(".card-suit")
     const $cardMeaning = document.querySelector(".card-meaning")
     const $desc = document.querySelector(".desc")
+    const $tarotImage = document.querySelector(".tarot-img")
     
     $cardName.innerText = reading.card.name
-    $cardSuit.innerText = reading.card.suit
-    $cardMeaning.innerText = getMeaning(reading)
+    $tarotImage.src = `/assets/tarot/${reading.card.name_short}.jpg`
+    $tarotImage.alt = `${reading.card.name}`
+    $cardMeaning.innerText = getMeaning(reading, $tarotImage)
     $desc.innerText = reading.card.desc
 }
 
@@ -45,6 +46,7 @@ function getMeaning(reading){
     if (reading.direction === "up"){
         return `Up: ${reading.card.meaning_up}`
     } else {
+        $tarotImage.classList.add("upside-down")
         return `Down: ${reading.card.meaning_rev}`
     }
 }
