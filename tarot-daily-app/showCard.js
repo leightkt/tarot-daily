@@ -19,7 +19,6 @@ fetch(`${backendURL}/readings/${readingId}`, {
 })
     .then(response => response.json())
     .then(reading => {
-        console.log(reading)
         displayCard(reading)
         displayQuestion(reading)
         addDeleteAction(reading)
@@ -42,7 +41,7 @@ function displayQuestion(reading){
     $question.textContent = `You asked: ${reading.question} on ${reading.date}`
 }
 
-function getMeaning(reading){
+function getMeaning(reading, $tarotImage){
     if (reading.direction === "up"){
         return `Up: ${reading.card.meaning_up}`
     } else {
