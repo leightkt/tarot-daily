@@ -8,15 +8,18 @@ const $newReading = document.querySelector(".new-reading")
 const $saveButton = document.querySelector(".save")
 const $backButton = document.querySelector(".back-button")
 const $logoutButton = document.querySelector(".logout")
+const $deleteAccountButton = document.querySelector(".delete-account")
+const $confirmDelete = document.querySelector(".confirm-delete")
 const searchParams = new URLSearchParams(window.location.search)
 const userID = searchParams.get('user_id')
-let question = null
+let userQuestion = null
 
 getHoroscope()
 getSavedReadings()
 addActionToGetReading()
 addActionToBack()
 logoutAction()
+addDeleteAccount()
 
 function getSavedReadings(){
     fetch(`${backendURL}/users/${userID}`, {
@@ -66,11 +69,10 @@ function appendReading(reading) {
 function addActionToGetReading() {
     $getReadingForm.addEventListener('submit', (event) => {
         event.preventDefault()
-        event.target.reset()
-        toggleHidden([$displayReadings, $getReadingForm, $newReading, $welcome.parentNode])
+        toggleHidden([$displayReadings, $getReadingForm, $newReading, $welcome.parentNode, document.querySelector("footer")])
 
         const formdata = new FormData($getReadingForm)
-        question = formdata.get('question')
+        userQuestion = formdata.get('question')
 
         fetch(`${backendURL}/reading`, {
             method: "GET",
@@ -84,6 +86,7 @@ function addActionToGetReading() {
             .then(tarotCard => {
                 displayCard(tarotCard)
                 addActionToSave(tarotCard)
+                event.target.reset()
             })
     })
 }
@@ -119,7 +122,6 @@ function addActionToBack(){
 
 function addActionToSave(tarotCard){
     $saveButton.addEventListener('click', (_) => {
-
         fetch(`${backendURL}/readings`, {
             method: "POST",
             headers: {
@@ -129,7 +131,7 @@ function addActionToSave(tarotCard){
             },
             body: JSON.stringify({
                 reading: {
-                    question: question.trim(),
+                    question: userQuestion.trim(),
                     user_id: userID,
                     card_id: tarotCard.card[0].id,
                     direction: tarotCard.direction
@@ -139,8 +141,8 @@ function addActionToSave(tarotCard){
                 .then(response => response.json())
                 .then(result => {
                     appendReading(result)
-                    question = null
-                    toggleHidden([$displayReadings, $getReadingForm, $newReading])
+                    userQuestion = null
+                    toggleHidden([$displayReadings, $getReadingForm, $newReading, document.querySelector("footer")])
                     $getReadingForm.reset()
                 })
     })
@@ -170,4 +172,33 @@ function getHoroscope(){
         .then(result => {
             $horoscope.textContent = result.horoscope
         })
+}
+
+function addDeleteAccount(){
+    $deleteAccountButton.addEventListener('click', (_) => {
+        confirmDelete()
+    })
+}
+
+function confirmDelete(){
+    toggleHidden([document.querySelector("main"), $logoutButton, $deleteAccountButton, $confirmDelete])
+    const $confirmDeleteButton = document.querySelector(".yes-delete")
+    const $dontDeleteButton = document.querySelector(".dont-delete")
+    $confirmDeleteButton.addEventListener('click', (_) => {
+        fetch(`${backendURL}/users/${userID}`, {
+            method: "Delete",
+            headers: {
+                "Authorization": `Bearer ${localStorage.token}`,
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then(() => {
+                localStorage.removeItem('token')
+                location.replace('/')
+            })
+    })
+    $dontDeleteButton.addEventListener('click', (_) => {
+        toggleHidden([document.querySelector("main"), $logoutButton, $deleteAccountButton, $confirmDelete])
+    })
 }
