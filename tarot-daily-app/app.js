@@ -47,8 +47,9 @@ function login(user_name, password){
         })
 }
 
-$signUpButton.addEventListener('click', (_) => {
-    toggleHidden([$loginForm, $signupForm, $signUpButton])
+$signUpButton.addEventListener('click', (event) => {
+    event.preventDefault()
+    toggleHidden([$loginForm, $signupForm, $signUpButton, $signUpButton.parentElement])
 })
 
 $signupForm.addEventListener('submit', (event) => {
