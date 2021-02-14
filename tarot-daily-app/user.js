@@ -10,6 +10,7 @@ const $backButton = document.querySelector(".back-button")
 const $logoutButton = document.querySelector(".logout")
 const $deleteAccountButton = document.querySelector(".delete-account")
 const $confirmDelete = document.querySelector(".confirm-delete")
+const $footer = document.querySelector('footer')
 const searchParams = new URLSearchParams(window.location.search)
 const userID = searchParams.get('user_id')
 let userQuestion = null
@@ -51,25 +52,29 @@ function displayReadings(user) {
 }
 
 function appendReading(reading) {
+    const $readingCard = document.createElement('div')
+    $readingCard.classList.add('reading-card')
     const $date = document.createElement('h4')
-    const $question = document.createElement('h4')
+    const $question = document.createElement('p')
     const $readingbutton = document.createElement('button')
+    $readingbutton.classList.add('reading-button')
     const $readingPageLink = document.createElement('a')
+    $readingPageLink.classList.add("reading-button-link")
     
     $date.innerText = reading.date
     $question.innerText = reading.question
-    $readingbutton.innerText = "See Reading"
+    $readingbutton.innerText = "View"
     $readingPageLink.href = `showCard.html?reading_id=${reading.id}&user_id=${userID}`
 
     $readingPageLink.appendChild($readingbutton)
-
-    $displayReadings.append($date, $question, $readingPageLink)
+    $readingCard.append($date, $question, $readingPageLink)
+    $displayReadings.append($readingCard)
 }
 
 function addActionToGetReading() {
     $getReadingForm.addEventListener('submit', (event) => {
         event.preventDefault()
-        toggleHidden([$displayReadings, $getReadingForm, $newReading, $welcome.parentNode, document.querySelector("footer")])
+        toggleHidden([$displayReadings, $getReadingForm, $newReading, $welcome.parentNode, $footer])
 
         const formdata = new FormData($getReadingForm)
         userQuestion = formdata.get('question')
@@ -116,7 +121,7 @@ function getMeaning(tarotCard, $tarotImage){
 
 function addActionToBack(){
     $backButton.addEventListener('click', (_) => {
-        toggleHidden([$newReading, $displayReadings, $getReadingForm])
+        toggleHidden([$newReading, $displayReadings, $getReadingForm, $welcome.parentNode, $footer])
     })
 }
 
@@ -142,7 +147,7 @@ function addActionToSave(tarotCard){
                 .then(result => {
                     appendReading(result)
                     userQuestion = null
-                    toggleHidden([$displayReadings, $getReadingForm, $newReading, document.querySelector("footer")])
+                    toggleHidden([$displayReadings, $getReadingForm, $newReading, $footer])
                     $getReadingForm.reset()
                 })
     })

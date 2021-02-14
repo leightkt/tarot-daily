@@ -81,7 +81,7 @@ $signupForm.addEventListener('submit', (event) => {
             if (data.errors){
                 console.log(data.errors)
                 toggleHidden([$signupErrors])
-                $signupErrors.innerText = data.errors
+                $signupErrors.innerText = data.errors[0]
             }
             else {
                 toggleHidden([$signupErrors, $backToLoginButton])
