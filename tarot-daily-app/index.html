@@ -7,29 +7,36 @@
     <title>Tarot Daily</title>
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300&family=Exo:wght@100;200&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <h1>Tarot Daily</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX5qUawkQkYzl8J-dPDRnCc8W3yWSPq9mEFA&usqp=CAU" alt="star chart">
+        <h1><span id="tarot-header">Tarot</span> Daily</h1>
     </header>
+    <div class="background">
+    </div>
     <main>
         <form class="login-form">
-            <label for="user_name">Username:</label>
-            <input type="text" name="user_name" id="user_name">
-            <label for="password">Password:</label>
-            <input type="text" name="password" id="password">
-            <input type="submit" value="Log In">
+            <label class="hidden" for="user_name">Username:</label>
+            <input type="text" name="user_name" id="user_name" placeholder="username">
+            <label class="hidden" for="password">Password:</label>
+            <input type="text" name="password" id="password" placeholder="password">
+            <a href=""><input type="submit" value="Log In"></a>
+            <p class="errors error hidden"></p>
         </form>
-        <p class="errors error hidden"></p>
-        <button class="sign-up">New? Sign Up!</button>
+        <a href="" class="sign-up-wrap"><button class="sign-up">New? Sign Up!</button></a>
         <form class="signup-form hidden">
-            <label for="name">Name</label>
+            <label class="hidden" for="name">Name</label>
             <input type="text" name="name" id="name" placeholder="name">
-            <label for="username">Username</label>
+            <label class="hidden" for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="username">
-            <label for="new-password">Password</label>
+            <label class="hidden" for="new-password">Password</label>
             <input type="password" name="password" id="new-password" placeholder="password">
-            <label for="star-sign">Star Sign</label>
+            <label class="hidden" for="star-sign">Star Sign</label>
             <select name="star-sign" id="star-sign">
                 <option value="Aries">Aries</option>
                 <option value="Taurus">Taurus</option>
@@ -44,11 +51,13 @@
                 <option value="Aquarius">Aquarius</option>
                 <option value="Pieces">Pieces</option>
             </select>
-            <input type="submit" value="Sign Up">
+            <a href="" class="sign-up-link"><input type="submit" value="Sign Up"></a>
         </form>
-        <p class="signup-errors error hidden"></p>
-        <button class="back-to-login hidden">Log In</button>
+        <p class="signup-errors errors hidden"></p>
+        <a class="hidden back-to-login" href=""><button>Log In</button></a>
     </main>
-    <footer></footer>
+    <footer>    
+        <img src='/assets/tarot/icons/skull.jpeg'alt="amimal skull with flowers">
+    </footer>
 </body>
-</html>
+</html> 

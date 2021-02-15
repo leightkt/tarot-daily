@@ -1,13 +1,16 @@
 const backendURL = "http://localhost:9000"
 const $displayReadings = document.querySelector(".display-readings")
 const $question = document.querySelector(".question")
+const $date = document.querySelector(".date")
 const $backButton = document.querySelector(".back-button")
 const $deleteButton = document.querySelector(".delete")
 const queryParams = new URLSearchParams(window.location.search)
 const readingId = queryParams.get('reading_id')
 const userID = queryParams.get('user_id')
 
-$backButton.parentNode.href = `/user.html?user_id=${userID}`
+$backButton.addEventListener('click', (_) => {
+    window.location.replace(`/user.html?user_id=${userID}`)
+})
 
 fetch(`${backendURL}/readings/${readingId}`, {
     method: "GET",
@@ -38,7 +41,8 @@ function displayCard(reading) {
 }
 
 function displayQuestion(reading){
-    $question.textContent = `You asked: ${reading.question} on ${reading.date}`
+    $question.textContent = reading.question
+    $date.textContent = reading.date
 }
 
 function getMeaning(reading, $tarotImage){

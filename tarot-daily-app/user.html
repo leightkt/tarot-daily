@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarot Daily</title>
     <script src="user.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="user.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300&family=Exo:wght@100;200&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Tarot Daily</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX5qUawkQkYzl8J-dPDRnCc8W3yWSPq9mEFA&usqp=CAU" alt="star chart">
+        <h1><span id="tarot-header">Tarot</span> Daily</h1>
     </header>
+    <div class="background">
+    </div>
     <main>
         <section class="welcome">
             <h2 class="welcome user-greeting"></h2>
@@ -19,10 +25,9 @@
             <h3 class="welcome horoscope"></h3>
         </section>
         <form class="get-reading">
-            <h4>Get a Tarot Reading</h4>
             <label for="question">Ask a question:</label>
             <input type="text" name="question" id="question">
-            <input type="submit" value="Get Reading" name="question" id="question">
+            <a href=""><input type="submit" value="Get Reading" name="question" id="question"></a>
         </form>
         <section class="display-readings">
             <h3>Saved Readings</h3>
@@ -31,28 +36,31 @@
             <div class="tarot-card">
                 <div class="inner">
                     <div class="tarot-card front">
-                        <h3 class="card-name"></h3>
                         <img class="tarot-img" src="" alt="">
                     </div>
                     <div class="tarot-card back">
+                        <h3 class="card-name"></h3>
                         <p class="card-meaning"></p>
-                        <p class="desc"></p>
                     </div>
+                </div>
+                <div class="desc-div">
+                    <p class="desc"></p>
                 </div>
             </div>
             <button class="save">Save</button>
             <button class="back-button">Back</button>
         </section>
     </main>
-    <footer>
-        <button class="logout">Log Out</button>
-        <button class="delete-account">Delete Account</button>
-        <section class="confirm-delete hidden">
-            <h2>Are you sure you want to delete your account?</h2>
-            <p>(you cannot undo this action)</p>
-            <button class="yes-delete">Yes, I'm sure</button>
-            <button class="dont-delete">No, take me back</button>
-        </section>
+<footer>
+    <a href=""><button class="logout">Log <br>Out</button></a>
+    <a href=""><button class="delete-account">Delete Account</button></a>
+    <section class="confirm-delete hidden">
+        <h2>Are you sure you want to delete your account?</h2>
+        <p>(you cannot undo this action)</p>
+        <a href=""><button class="yes-delete">Yes, I'm sure</button></a>
+        <a href=""><button class="dont-delete">No, take me back</button></a>
+    </section>
+    <img src='/assets/tarot/icons/skull.jpeg' alt="animal skull with flowers">
     </footer>
 </body>
 </html>

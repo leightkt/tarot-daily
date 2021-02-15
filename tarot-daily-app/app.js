@@ -8,7 +8,6 @@ const $signupErrors = document.querySelector(".signup-errors")
 const $backToLoginButton = document.querySelector(".back-to-login")
 
 
-
 $loginForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
@@ -47,8 +46,9 @@ function login(user_name, password){
         })
 }
 
-$signUpButton.addEventListener('click', (_) => {
-    toggleHidden([$loginForm, $signupForm, $signUpButton])
+$signUpButton.addEventListener('click', (event) => {
+    event.preventDefault()
+    toggleHidden([$loginForm, $signupForm, $signUpButton, $signUpButton.parentElement])
 })
 
 $signupForm.addEventListener('submit', (event) => {
@@ -80,7 +80,7 @@ $signupForm.addEventListener('submit', (event) => {
             if (data.errors){
                 console.log(data.errors)
                 toggleHidden([$signupErrors])
-                $signupErrors.innerText = data.errors
+                $signupErrors.innerText = data.errors[0]
             }
             else {
                 toggleHidden([$signupErrors, $backToLoginButton])

@@ -6,31 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarot Daily</title>
     <script src="showCard.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="showCard.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300&family=Exo:wght@100;200&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header></header>
-    <main>
-        <section class="question-dispaly">
-            <p class="question"></p>
-        </section>
-        <section class="display-readings">
-            <div class="tarot-card">
-                <div class="inner">
-                    <div class="tarot-card front">
-                        <h3 class="card-name"></h3>
-                        <img class="tarot-img" src="" alt="">
+    <header>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX5qUawkQkYzl8J-dPDRnCc8W3yWSPq9mEFA&usqp=CAU" alt="star chart">
+        <h1><span id="tarot-header">Tarot</span> Daily</h1>
+    </header>
+    <div class="background">
+    </div>
+        <main>
+            <section class="question-display">
+                <p class="question"></p>
+                <p class="date"></p>
+            </section>
+            <section class="display-readings">
+                <div class="tarot-card">
+                    <div class="inner">
+                        <div class="tarot-card front">
+                            <img class="tarot-img" src="" alt="">
+                        </div>
+                        <div class="tarot-card back">
+                            <h3 class="card-name"></h3>
+                            <p class="card-meaning"></p>
+                        </div>
                     </div>
-                    <div class="tarot-card back">
-                        <p class="card-meaning"></p>
+                    <div class="desc-div">
                         <p class="desc"></p>
                     </div>
                 </div>
-            </div>
-            <button class="delete">Delete</button>
-            <a href=""><button class="back-button">Back</button></a>
-        </section>
-    </main>
-    <footer></footer>
+                <button class="delete">Delete</button>
+                <button class="back-button">Back</button>
+            </section>
+        </main>
+    <footer>
+            <img src='/assets/tarot/icons/skull.jpeg' alt="animal skull with flowers">
+    </footer>
 </body>
 </html>
