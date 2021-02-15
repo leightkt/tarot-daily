@@ -8,7 +8,6 @@ const $signupErrors = document.querySelector(".signup-errors")
 const $backToLoginButton = document.querySelector(".back-to-login")
 
 
-
 $loginForm.addEventListener('submit', (event) => {
     event.preventDefault()
 

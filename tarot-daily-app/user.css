@@ -1,99 +1,91 @@
-/* color pallet */
-/* 1 hsl(251, 100%, 5%)
-2
-3hsl(251, 100%, 12%)
-4
-5 hsl(251, 100%, 18%);
-6
-7hsl(251, 60%, 25%);
-8hsl(251, 80%, 85%);
-9hsl(251, 60%, 90%)
-10 hsl(251, 100%, 98%)*/
-/* CSS */
 body {
     background-color: hsl(251, 100%, 98%);
     margin: 0;
     padding: 0;
-    font-family: 'Raleway', sans-serif;
-}
-
-.background {
-background-image: url("https://i0.wp.com/www.adammiconi.com/wp-content/uploads/2017/01/2-point-perspective-grid-adam-miconi.jpg?fit=1030%2C671&ssl=1");
-opacity: 0.1;
-position: absolute;
-top: 250px;
-left: 0;
-margin: 0 auto;
-width: 100%;
-min-height: 134vh;
-max-height: 100%;
-z-index: -1;
+    font-family: 'Alegreya Sans', sans-serif;
 }
 
 main {
-max-width: 100%;
-padding: 1rem;
-height: 50rem;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
+    max-width: 100%;
+    padding: 2rem;
+    min-height: 50rem;
 }
 
 .display-readings {
-    margin-top: 0;
+    margin-top: 4rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
 }
 
+.new-reading {
+    margin-left: 10rem;
+    width: 100%;
+}
 
 
 .tarot-card {
     background-color: transparent;
-    width: 22rem;
-    height: 45rem;
+    width: 12rem;
+    height: 23rem;
     perspective: 1000px;
+    margin-bottom: 2rem;
 }
+
+.desc-div {
+    position: absolute;
+    width: 20rem;
+    left: 15rem;
+    top: 0;
+}
+
+.tarot-card > img {
+    width: 12rem;
+}
+
 
 /* This container is needed to position the front and back side */
 .inner {
-position: relative;
-width: 100%;
-height: 100%;
-text-align: center;
-transition: transform 0.8s;
-transform-style: preserve-3d;
-}
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    margin-bottom: 1rem;
+    }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
 .tarot-card:hover .inner {
-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 /* Position the front and back side */
 .front, .back {
-background: hsl(251, 60%, 90%);
-position: absolute;
-width: 100%;
-height: 100%;
--webkit-backface-visibility: hidden; /* Safari */
-backface-visibility: hidden;
+    background: hsl(251, 60%, 90%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
 }
 
 /* Style the front side (fallback if image is missing) */
 .front {
-color: hsl(251, 100%, 12%);
-box-shadow: 3px 3px 8px hsl(251, 60%, 90%);
+    color: hsl(251, 100%, 12%);
+    box-shadow: 3px 3px 8px hsl(251, 60%, 90%);
 }
 
 /* Style the back side */
 .back {
-transform: rotateY(180deg);
-box-shadow: 3px 3px 8px hsl(251, 60%, 90%);
+    padding: 0.5rem;
+    transform: rotateY(180deg);
+    box-shadow: 3px 3px 8px hsl(251, 60%, 90%);
 }
 
 .upside-down {
--webkit-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
 }
 
 button, input[type="submit"] {
@@ -110,50 +102,50 @@ button, input[type="submit"] {
 }
 
 a {
-width: 10rem;
-text-decoration: none;
-border: 2px solid hsl(251, 100%, 18%);
-padding: 15px;
-margin-left: 2rem;
-color: hsl(251, 100%, 18%);
-text-transform: uppercase;
-letter-spacing: 2px;
-position: relative;
-display: inline-block;
+    width: 10rem;
+    text-decoration: none;
+    border: 2px solid hsl(251, 100%, 18%);
+    padding: 15px;
+    margin-left: 2rem;
+    color: hsl(251, 100%, 18%);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
 }
 
 a::before {
-content: "";
-position: absolute;
-top: 5px;
-left: -2px;
-width: calc(100% + 6px);
-/*100% plus double the times left values*/
-height: calc(100% - 10px);
-background-color: hsl(251, 100%, 98%);
-transition: all 0.5s ease-in-out;
-transform: scaleY(1);
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -2px;
+    width: calc(100% + 6px);
+    /*100% plus double the times left values*/
+    height: calc(100% - 10px);
+    background-color: hsl(251, 100%, 98%);
+    transition: all 0.5s ease-in-out;
+    transform: scaleY(1);
 }
 
 a:hover::before {
-transform: scaleY(0);
+    transform: scaleY(0);
 }
 
 a::after {
-content: "";
-position: absolute;
-left: 5px;
-top: -5px;
-width: calc(100% - 10px);
-/*100% plus double the times left values*/
-height: calc(100% + 10px);
-background-color: hsl(251, 100%, 98%);
-transition: all 0.5s ease-in-out;
-transform: scaleX(1);
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: -5px;
+    width: calc(100% - 10px);
+    /*100% plus double the times left values*/
+    height: calc(100% + 10px);
+    background-color: hsl(251, 100%, 98%);
+    transition: all 0.5s ease-in-out;
+    transform: scaleX(1);
 }
 
 a:hover::after {
-transform: scaleX(0);
+    transform: scaleX(0);
 }
 
 button:hover {
@@ -161,13 +153,13 @@ button:hover {
 }
 
 input, select {
-border: none;
-height: 3rem;
-width: 10rem;
-padding: 1rem 1rem 0.25rem 1rem;
-text-decoration: none;
-color: hsl(251, 100%, 18%);
-letter-spacing: 2px;
+    border: none;
+    height: 3rem;
+    width: 10rem;
+    padding: 1rem 1rem 0.25rem 1rem;
+    text-decoration: none;
+    color: hsl(251, 100%, 18%);
+    letter-spacing: 2px;
 }
 
 header {
@@ -179,6 +171,7 @@ header {
 }
 
 header > h1 {
+    font-family: 'Exo', sans-serif;
     position: absolute;
     font-weight: lighter;
     padding: 1rem 1rem 0rem 1rem;
@@ -189,23 +182,23 @@ header > h1 {
 }
 
 #tarot-header {
-color: hsl(251, 100%, 98%);
+    color: hsl(251, 100%, 98%);
 }
 
 header > img {
-position: absolute;
-width: 300px;
-padding: 15px;
-margin: 25px;
-border-radius: 50%;
+    position: absolute;
+    width: 300px;
+    padding: 15px;
+    margin: 25px;
+    border-radius: 50%;
 }
 
 footer {
-height: 4rem;
-border-top: 1px solid hsl(251, 100%, 18%);
-padding: 2rem;
-margin-top: 1rem;
-position: relative;
+    height: 4rem;
+    border-top: 1px solid hsl(251, 100%, 18%);
+    padding: 2rem;
+    margin-top: 1rem;
+    position: relative;
 }
 
 footer > img {
@@ -226,7 +219,9 @@ footer > img {
     width: 3.5rem;
     height: 1rem;
     margin: 0;
-    padding: 0 0 0 0.5rem;
+    padding: 0;
+    border-bottom: 1px solid hsl(251, 60%, 25%);
+    border-top: 1px solid hsl(251, 60%, 25%);
 }
 
 .reading-button:hover {
@@ -259,15 +254,19 @@ footer > img {
     border: none;
 }
 
-.reading-button-link:hover {
-    background-color: hsl(251, 60%, 25%);
-}
-
 .welcome {
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin: 0;
+    margin-bottom: 3rem;
+}
+
+.welcome > h2 {
+    font-family: 'Exo', sans-serif;
+}
+
+.display-readings > h3 {
+    font-family: 'Exo', sans-serif;
 }
 
 .user-greeting {
@@ -280,6 +279,14 @@ input[type="text"]{
     margin-left: 1rem;
 }
 
+.save, .back-button {
+    width: 4rem;
+    background-color: hsl(251, 100%, 12%);
+    color:hsl(251, 100%, 98%);
+    margin: 2rem 0.75rem 0rem 0.75rem;
+    z-index: 1;
+}
+
 .hidden {
-display: none;
+    display: none;
 }

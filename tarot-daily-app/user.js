@@ -159,8 +159,9 @@ function toggleHidden(elements){
 
 function logoutAction(){
     $logoutButton.addEventListener('click', (_) => {
+        event.preventDefault()
         localStorage.removeItem('token')
-        location.replace('/')
+        location.replace('/index.html')
     })
 }
 

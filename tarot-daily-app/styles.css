@@ -2,24 +2,11 @@
 body {
   background-color: hsl(251, 100%, 98%);
   margin: 0;
-  font-family: 'Raleway', sans-serif;
-}
-
-.background {
-  background-image: url("https://i0.wp.com/www.adammiconi.com/wp-content/uploads/2017/01/2-point-perspective-grid-adam-miconi.jpg?fit=1030%2C671&ssl=1");
-  opacity: 0.1;
-  position: absolute;
-  top: 250px;
-  left: 0;
-  margin: 0 auto;
-  width: 100%;
-  min-height: 96vh;
-  max-height: 100%;
-  z-index: -1;
+  font-family: 'Alegreya Sans', sans-serif;
 }
 
 main {
-  height: 33rem;
+  height: 40rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -121,6 +108,7 @@ header {
 
 
 header > h1 {
+  font-family: 'Exo', sans-serif;
   position: absolute;
   font-weight: lighter;
   padding: 1rem 1rem 0rem 1rem;
@@ -136,9 +124,9 @@ header > h1 {
 
 header > img {
   position: absolute;
-  width: 300px;
-  padding: 15px;
-  margin: 25px;
+  width: 19rem;
+  padding: 1rem;
+  margin: 1.5rem;
   border-radius: 50%;
 }
 
